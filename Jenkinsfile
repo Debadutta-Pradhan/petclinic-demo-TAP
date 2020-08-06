@@ -41,6 +41,7 @@ pipeline {
     stage ('Deploy to Dev') {
       steps{
         echo "Deploying to Dev Environment"
+        sh "docker rm -f petclinic"
         sh "docker run -d --name=petclinic -p 8081:8080 debaduttapradhan1996/petclinic"
       }
     }
